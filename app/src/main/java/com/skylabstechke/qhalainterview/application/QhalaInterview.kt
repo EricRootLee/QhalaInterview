@@ -1,4 +1,6 @@
 package com.skylabstechke.qhalainterview.application
 
-class QhalaInterview {
+import android.app.Application
+
+class QhalaInterview : Application() {
 }
