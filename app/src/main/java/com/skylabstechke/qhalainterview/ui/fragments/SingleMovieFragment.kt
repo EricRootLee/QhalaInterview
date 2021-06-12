@@ -1,4 +1,4 @@
-package com.skylabstechke.qhalainterview
+package com.skylabstechke.qhalainterview.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

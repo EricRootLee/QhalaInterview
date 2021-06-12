@@ -7,18 +7,18 @@
 
     <fragment
         android:id="@+id/popularMoviesFragment"
-        android:name="com.skylabstechke.qhalainterview.PopularMoviesFragment"
+        android:name="com.skylabstechke.qhalainterview.ui.fragments.PopularMoviesFragment"
         android:label="fragment_popular_movies"
-        tools:layout="@layout/fragment_popular_movies" >
+        tools:layout="@layout/fragment_popular_movies">
         <action
             android:id="@+id/action_popularMoviesFragment_to_singleMovieFragment"
             app:destination="@id/singleMovieFragment" />
     </fragment>
     <fragment
         android:id="@+id/singleMovieFragment"
-        android:name="com.skylabstechke.qhalainterview.SingleMovieFragment"
+        android:name="com.skylabstechke.qhalainterview.ui.fragments.SingleMovieFragment"
         android:label="fragment_single_movie"
-        tools:layout="@layout/fragment_single_movie" >
+        tools:layout="@layout/fragment_single_movie">
         <action
             android:id="@+id/action_singleMovieFragment_to_popularMoviesFragment"
             app:destination="@id/popularMoviesFragment" />
