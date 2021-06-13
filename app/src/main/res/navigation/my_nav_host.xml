@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/popularMoviesFragment"
         android:name="com.skylabstechke.qhalainterview.ui.fragments.PopularMoviesFragment"
-        android:label="fragment_popular_movies"
+        android:label="Popular Movies"
         tools:layout="@layout/fragment_popular_movies">
         <action
             android:id="@+id/action_popularMoviesFragment_to_singleMovieFragment"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/singleMovieFragment"
         android:name="com.skylabstechke.qhalainterview.ui.fragments.SingleMovieFragment"
-        android:label="fragment_single_movie"
+        android:label="Movie Details"
         tools:layout="@layout/fragment_single_movie">
         <action
             android:id="@+id/action_singleMovieFragment_to_popularMoviesFragment"
