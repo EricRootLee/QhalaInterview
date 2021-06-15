@@ -26,6 +26,7 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolde
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.binding.movieTitle.text = dataList[position]
+
     }
 
     override fun getItemCount(): Int {
