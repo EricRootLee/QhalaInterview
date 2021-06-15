@@ -2,8 +2,11 @@ package com.skylabstechke.qhalainterview.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import coil.Coil
+import coil.load
 import com.skylabstechke.qhalainterview.databinding.PopularMoviesRowLayoutBinding
 import com.skylabstechke.qhalainterview.utils.DiffUtils
 
@@ -27,6 +30,10 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolde
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.binding.movieTitle.text = dataList[position]
 
+holder.binding.movieImage.load("").apply {
+    error("")
+
+}
     }
 
     override fun getItemCount(): Int {
