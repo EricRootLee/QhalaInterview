@@ -32,7 +32,6 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolde
         holder.binding.movieImage.load("https://avatars.githubusercontent.com/u/44473888?s=60&v=4") {
             crossfade(600)
             error(R.drawable.ic_error)
-
         }
     }
 
