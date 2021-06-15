@@ -1,6 +1,7 @@
 package com.skylabstechke.qhalainterview.ui.fragments
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,7 +27,8 @@ class PopularMoviesFragment : Fragment() {
             false
         )
         setRecyclerView()
-       // requestApi()
+        requestApi()
+        Handler().postDelayed({hideShimmer()},3000,)
         return binding.root
     }
 
