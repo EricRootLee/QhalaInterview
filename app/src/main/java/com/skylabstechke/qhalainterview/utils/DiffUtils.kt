@@ -2,20 +2,24 @@ package com.skylabstechke.qhalainterview.utils
 
 import androidx.recyclerview.widget.DiffUtil
 
-class DiffUtils() : DiffUtil.Callback() {
+class DiffUtils(
+    private val newList: List<String>,
+    private val oldList: List<String>
+
+) : DiffUtil.Callback() {
     override fun getOldListSize(): Int {
-        TODO("Not yet implemented")
+        return oldList.size
     }
 
     override fun getNewListSize(): Int {
-        TODO("Not yet implemented")
+        return oldList.size
     }
 
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        TODO("Not yet implemented")
+        return oldList[oldItemPosition] === newList[newItemPosition]
     }
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        TODO("Not yet implemented")
+        return oldList[oldItemPosition] == newList[newItemPosition]
     }
 }
