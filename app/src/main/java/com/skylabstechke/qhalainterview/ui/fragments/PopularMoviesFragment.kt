@@ -20,14 +20,13 @@ class PopularMoviesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         _binding = FragmentPopularMoviesBinding.inflate(
             layoutInflater,
             container,
             false
         )
         setRecyclerView()
-        showShimmer()
+        requestApi()
         return binding.root
     }
 
@@ -44,7 +43,17 @@ class PopularMoviesFragment : Fragment() {
         binding.recyclerViewId.hideShimmer()
     }
 
-    private fun requestApi(){
+    private fun requestApi() {
         showShimmer()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }
