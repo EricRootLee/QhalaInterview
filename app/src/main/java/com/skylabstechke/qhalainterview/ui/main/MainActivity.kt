@@ -19,4 +19,8 @@ class MainActivity : AppCompatActivity() {
         val navHost = findNavController(R.id.navHostContainer)
         return navHost.navigateUp() || super.onSupportNavigateUp()
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+    }
 }

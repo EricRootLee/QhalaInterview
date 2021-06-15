@@ -2,7 +2,6 @@ package com.skylabstechke.qhalainterview.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverter
 import androidx.room.TypeConverters
 
 @Database(
@@ -12,6 +11,6 @@ import androidx.room.TypeConverters
 )
 
 @TypeConverters(MoviesTypeConvertor::class)
-abstract class MoviesDatabase :RoomDatabase() {
-    abstract fun moviesDao():MoviesDao
+abstract class MoviesDatabase : RoomDatabase() {
+    abstract fun moviesDao(): MoviesDao
 }
