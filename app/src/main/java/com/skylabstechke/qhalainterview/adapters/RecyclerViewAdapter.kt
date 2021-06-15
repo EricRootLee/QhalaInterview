@@ -1,4 +1,5 @@
 package com.skylabstechke.qhalainterview.adapters
 
-class RecyclerViewAdapter {
-}
+import androidx.recyclerview.widget.RecyclerView
+
+class RecyclerViewAdapter
