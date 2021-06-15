@@ -26,7 +26,7 @@ class PopularMoviesFragment : Fragment() {
             false
         )
         setRecyclerView()
-        requestApi()
+       // requestApi()
         return binding.root
     }
 
@@ -36,7 +36,7 @@ class PopularMoviesFragment : Fragment() {
     }
 
     private fun showShimmer() {
-        binding.recyclerViewId.showShimmer()
+       binding.recyclerViewId.showShimmer()
     }
 
     private fun hideShimmer() {
@@ -52,8 +52,4 @@ class PopularMoviesFragment : Fragment() {
         _binding = null
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
-    }
 }
