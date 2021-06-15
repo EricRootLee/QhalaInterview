@@ -5,9 +5,8 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "movies_table")
 class MoviesEntity(
-  var moviesData:List<String>
- ){
-
-  @PrimaryKey(autoGenerate = false)
-  var id:Int =0
- }
+    var moviesData: List<String>
+) {
+    @PrimaryKey(autoGenerate = false)
+    var id: Int = 0
+}
