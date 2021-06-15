@@ -2,11 +2,11 @@ package com.skylabstechke.qhalainterview.ui.fragments
 
 import android.os.Bundle
 import android.os.Handler
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.skylabstechke.qhalainterview.R
 import com.skylabstechke.qhalainterview.adapters.RecyclerViewAdapter
 import com.skylabstechke.qhalainterview.databinding.FragmentPopularMoviesBinding
 
@@ -28,8 +28,24 @@ class PopularMoviesFragment : Fragment() {
         )
         setRecyclerView()
         requestApi()
-        Handler().postDelayed({hideShimmer()},3000,)
+        Handler().postDelayed({ hideShimmer() }, 3000)
+
+
+        setHasOptionsMenu(true)
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.popular_movies_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.change_theme_id) {
+            Toast.makeText(requireContext(), "Change theme", Toast.LENGTH_LONG)
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun setRecyclerView() {
@@ -38,7 +54,7 @@ class PopularMoviesFragment : Fragment() {
     }
 
     private fun showShimmer() {
-       binding.recyclerViewId.showShimmer()
+        binding.recyclerViewId.showShimmer()
     }
 
     private fun hideShimmer() {
