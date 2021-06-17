@@ -1,7 +1,7 @@
 package com.skylabstechke.qhalainterview.di
 
 import com.skylabstechke.qhalainterview.data.network.MoviesApi
-import com.skylabstechke.qhalainterview.utils.Common.Companion.BASE_URL
+import com.skylabstechke.qhalainterview.utils.Common.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
