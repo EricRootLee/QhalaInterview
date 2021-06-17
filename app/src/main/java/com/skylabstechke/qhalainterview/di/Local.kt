@@ -15,19 +15,6 @@ import javax.inject.Singleton
 @Module
 object Local {
 
-    @Singleton
-    @Provides
-
-    fun provideDatabase(@ApplicationContext context: Context) = Room.databaseBuilder(
-        context,
-        MoviesDatabase::class.java,
-        "movies_database"
-    ).build()
-
-
-    @Singleton
-    @Provides
-    fun provideMoviesDao(database: MoviesDatabase) = database.moviesDao()
 
 
 }
