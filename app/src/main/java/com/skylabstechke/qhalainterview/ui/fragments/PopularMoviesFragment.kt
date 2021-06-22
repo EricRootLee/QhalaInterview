@@ -16,6 +16,7 @@ class PopularMoviesFragment : Fragment() {
     private var _binding: FragmentPopularMoviesBinding? = null
     private val binding get() = _binding!!
 
+
     private val recyclerViewAdapter by lazy { RecyclerViewAdapter() }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,7 +44,7 @@ class PopularMoviesFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.change_theme_id) {
-            Toast.makeText(requireContext(), "Change theme", Toast.LENGTH_LONG)
+            Toast.makeText(requireContext(), "Change theme", Toast.LENGTH_LONG).show()
         }
         return super.onOptionsItemSelected(item)
     }
