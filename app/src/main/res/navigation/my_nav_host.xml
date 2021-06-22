@@ -14,7 +14,9 @@
             android:id="@+id/action_popularMoviesFragment_to_singleMovieFragment"
             app:destination="@id/singleMovieFragment"
             app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left" />
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/singleMovieFragment"
@@ -23,6 +25,8 @@
         tools:layout="@layout/fragment_single_movie">
         <action
             android:id="@+id/action_singleMovieFragment_to_popularMoviesFragment"
-            app:destination="@id/popularMoviesFragment" />
+            app:destination="@id/popularMoviesFragment"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
 </navigation>
