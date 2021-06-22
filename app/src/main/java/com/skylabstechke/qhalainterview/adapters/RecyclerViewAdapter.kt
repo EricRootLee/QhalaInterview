@@ -35,7 +35,8 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolde
             error(R.drawable.ic_error)
         }
         holder.binding.popularMoviesRowLayoutId.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_popularMoviesFragment_to_singleMovieFragment)
+            Navigation.findNavController(it)
+                .navigate(R.id.action_popularMoviesFragment_to_singleMovieFragment)
         }
     }
 

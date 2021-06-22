@@ -15,7 +15,6 @@ class QhalaInterview : Application() {
         super.onCreate()
         //start network monitor
         NetworkMonitor(this).startNetWorkCallback()
-
         //plant timber
         Timber.plant(Timber.DebugTree())
         //init stetho
