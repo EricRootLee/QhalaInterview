@@ -18,6 +18,12 @@ import javax.inject.Singleton
 @Module
 object Network {
 
+    @Singleton
+    @Provides
+    fun provideStethoInterceptor(): StethoInterceptor {
+        return StethoInterceptor()
+    }
+
 
     @Singleton
     @Provides
