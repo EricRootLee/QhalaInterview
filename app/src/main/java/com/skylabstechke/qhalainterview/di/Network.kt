@@ -1,5 +1,6 @@
 package com.skylabstechke.qhalainterview.di
 
+import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.skylabstechke.qhalainterview.data.network.MoviesApi
 import com.skylabstechke.qhalainterview.utils.Common.BASE_URL
 import dagger.Module
@@ -22,6 +23,7 @@ object Network {
     @Provides
     fun provideOkhttpClientInstance(): OkHttpClient {
         return OkHttpClient.Builder().connectTimeout(15, TimeUnit.SECONDS)
+            .addNetworkInterceptor(StethoInterceptor())
             .readTimeout(15, TimeUnit.SECONDS).build()
     }
 
@@ -41,7 +43,8 @@ object Network {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(okHttpClient)
-            .addConverterFactory(gsonConverterFactory).build()
+            .addConverterFactory(gsonConverterFactory)
+            .build()
     }
 
     @Singleton
