@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_popular_movies">
         <action
             android:id="@+id/action_popularMoviesFragment_to_singleMovieFragment"
-            app:destination="@id/singleMovieFragment" />
+            app:destination="@id/singleMovieFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left" />
     </fragment>
     <fragment
         android:id="@+id/singleMovieFragment"
