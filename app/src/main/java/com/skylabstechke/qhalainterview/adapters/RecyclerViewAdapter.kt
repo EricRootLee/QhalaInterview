@@ -2,6 +2,7 @@ package com.skylabstechke.qhalainterview.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
@@ -32,6 +33,9 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolde
         holder.binding.movieImage.load("https://avatars.githubusercontent.com/u/44473888?s=60&v=4") {
             crossfade(600)
             error(R.drawable.ic_error)
+        }
+        holder.binding.popularMoviesRowLayoutId.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_popularMoviesFragment_to_singleMovieFragment)
         }
     }
 
