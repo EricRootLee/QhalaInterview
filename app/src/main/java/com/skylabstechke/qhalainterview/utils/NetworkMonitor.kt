@@ -16,7 +16,6 @@ constructor(private val application: Application) {
     private val networkCallback = @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     object : ConnectivityManager.NetworkCallback() {
 
-
         override fun onAvailable(network: Network) {
             NetWorkVariables.isNetworkConnected = true
         }
@@ -32,7 +31,7 @@ constructor(private val application: Application) {
             application.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val builder: NetworkRequest.Builder = NetworkRequest.Builder()
 
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             cm.registerDefaultNetworkCallback(networkCallback)
         } else {
             cm.registerNetworkCallback(builder.build(), networkCallback)
