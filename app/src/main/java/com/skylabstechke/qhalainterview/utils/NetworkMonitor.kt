@@ -8,6 +8,7 @@ import android.net.NetworkRequest
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.annotation.RequiresPermission
+import timber.log.Timber
 
 class NetworkMonitor
 @RequiresPermission(android.Manifest.permission.ACCESS_NETWORK_STATE)
@@ -18,10 +19,12 @@ constructor(private val application: Application) {
 
         override fun onAvailable(network: Network) {
             NetWorkVariables.isNetworkConnected = true
+            Timber.wtf("Network Available")
         }
 
         override fun onLosing(network: Network, maxMsToLive: Int) {
             NetWorkVariables.isNetworkConnected = false
+            Timber.wtf("Network Lost")
         }
     }
 

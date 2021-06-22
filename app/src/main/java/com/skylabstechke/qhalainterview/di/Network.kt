@@ -28,7 +28,8 @@ object Network {
     @Singleton
     @Provides
     fun provideOkhttpClientInstance(): OkHttpClient {
-        return OkHttpClient.Builder().connectTimeout(15, TimeUnit.SECONDS)
+        return OkHttpClient.Builder()
+            .connectTimeout(15, TimeUnit.SECONDS)
             .addNetworkInterceptor(StethoInterceptor())
             .readTimeout(15, TimeUnit.SECONDS).build()
     }
