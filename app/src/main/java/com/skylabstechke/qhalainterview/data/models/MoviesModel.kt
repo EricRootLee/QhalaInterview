@@ -1,4 +1,4 @@
-package com.skylabstechke.qhalainterview.models
+package com.skylabstechke.qhalainterview.data.models
 
 
 import com.google.gson.annotations.SerializedName

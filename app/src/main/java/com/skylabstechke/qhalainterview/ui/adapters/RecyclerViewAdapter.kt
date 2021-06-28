@@ -1,4 +1,4 @@
-package com.skylabstechke.qhalainterview.adapters
+package com.skylabstechke.qhalainterview.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

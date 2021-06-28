@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.skylabstechke.qhalainterview.R
-import com.skylabstechke.qhalainterview.adapters.RecyclerViewAdapter
+import com.skylabstechke.qhalainterview.ui.adapters.RecyclerViewAdapter
 import com.skylabstechke.qhalainterview.databinding.FragmentPopularMoviesBinding
 
 
