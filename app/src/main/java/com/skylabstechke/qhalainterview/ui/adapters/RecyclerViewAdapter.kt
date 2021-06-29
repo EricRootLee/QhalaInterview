@@ -31,6 +31,8 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolde
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.binding.movieTitle.text = dataList[position].originalTitle
+        holder.binding.movieDate.text = dataList[position].releaseDate
+        holder.binding.movieRating.text = dataList[position].voteAverage.toString()
 
         holder.binding.movieImage.load(
             "https://image.tmdb.org/t/p/original${dataList[position].posterPath}"
