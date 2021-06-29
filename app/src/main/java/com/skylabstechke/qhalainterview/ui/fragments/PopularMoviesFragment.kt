@@ -1,23 +1,29 @@
 package com.skylabstechke.qhalainterview.ui.fragments
 
 import android.os.Bundle
-import android.os.Handler
+import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.skylabstechke.qhalainterview.R
-import com.skylabstechke.qhalainterview.ui.adapters.RecyclerViewAdapter
 import com.skylabstechke.qhalainterview.databinding.FragmentPopularMoviesBinding
+import com.skylabstechke.qhalainterview.ui.adapters.RecyclerViewAdapter
+import com.skylabstechke.qhalainterview.utils.NetworkResults
+import com.skylabstechke.qhalainterview.viewmodel.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
-
+@AndroidEntryPoint
 class PopularMoviesFragment : Fragment() {
+
+    private val recyclerViewAdapter by lazy { RecyclerViewAdapter() }
+    private val mainViewModel: MainViewModel by viewModels()
 
     private var _binding: FragmentPopularMoviesBinding? = null
     private val binding get() = _binding!!
 
-
-    private val recyclerViewAdapter by lazy { RecyclerViewAdapter() }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,8 +35,6 @@ class PopularMoviesFragment : Fragment() {
         )
         setRecyclerView()
         requestApi()
-        Handler().postDelayed({ hideShimmer() }, 3000)
-
 
         setHasOptionsMenu(true)
         return binding.root
@@ -64,11 +68,32 @@ class PopularMoviesFragment : Fragment() {
 
     private fun requestApi() {
         showShimmer()
+     mainViewModel.getMovies()
+        mainViewModel.moviesResponse.observe(viewLifecycleOwner, { response ->
+            when (response) {
+                is NetworkResults.Loading -> {
+                    showShimmer()
+                    Timber.i("Loading")
+                }
+                is NetworkResults.Error -> {
+                    hideShimmer()
+                    Toast.makeText(requireContext(), response.message.toString(), Toast.LENGTH_LONG)
+                        .show()
+                }
+                is NetworkResults.Success -> {
+                    Timber.d("RESPONSE 2 -> ${response.data.toString()}")
+                    hideShimmer()
+                    response.data?.let {
+                        Timber.d("RESPONSE 3 -> $it")
+                        recyclerViewAdapter.setData(it)
+                    }
+                }
+            }
+        })
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
 }

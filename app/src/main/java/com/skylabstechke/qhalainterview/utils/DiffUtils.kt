@@ -1,10 +1,11 @@
 package com.skylabstechke.qhalainterview.utils
 
 import androidx.recyclerview.widget.DiffUtil
+import com.skylabstechke.qhalainterview.data.models.Result
 
 class DiffUtils(
-    private val newList: List<String>,
-    private val oldList: List<String>
+    private val newList: List<Result>,
+    private val oldList: List<Result>
 
 ) : DiffUtil.Callback() {
     override fun getOldListSize(): Int {

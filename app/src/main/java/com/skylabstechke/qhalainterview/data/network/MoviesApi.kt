@@ -1,12 +1,12 @@
 package com.skylabstechke.qhalainterview.data.network
 
 import com.skylabstechke.qhalainterview.data.models.MoviesModel
-import kotlinx.coroutines.flow.Flow
+import com.skylabstechke.qhalainterview.utils.Common
 import retrofit2.Response
 import retrofit2.http.GET
 
 interface MoviesApi {
-    @GET("/movies")
+    @GET("/3/movie/popular?api_key=${Common.API_KEY}&language=en-US&page=1/")
     suspend fun getMovies(
-    ): Flow<Response<MoviesModel>>
+    ): Response<MoviesModel>
 }

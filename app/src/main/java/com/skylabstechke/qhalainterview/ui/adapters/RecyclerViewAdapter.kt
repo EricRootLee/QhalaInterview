@@ -7,12 +7,14 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.skylabstechke.qhalainterview.R
+import com.skylabstechke.qhalainterview.data.models.MoviesModel
+import com.skylabstechke.qhalainterview.data.models.Result
 import com.skylabstechke.qhalainterview.databinding.PopularMoviesRowLayoutBinding
 import com.skylabstechke.qhalainterview.utils.DiffUtils
 
 
 class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>() {
-    private var dataList = listOf<String>("Muli", "denno", "cherono", "mbuta", "kanga", "uweri")
+    private var dataList = emptyList<Result>()
 
     inner class MyViewHolder(val binding: PopularMoviesRowLayoutBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -28,9 +30,11 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolde
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.binding.movieTitle.text = dataList[position]
+        holder.binding.movieTitle.text = dataList[position].originalTitle
 
-        holder.binding.movieImage.load("https://avatars.githubusercontent.com/u/44473888?s=60&v=4") {
+        holder.binding.movieImage.load(
+            "https://image.tmdb.org/t/p/original${dataList[position].posterPath}"
+        ) {
             crossfade(600)
             error(R.drawable.ic_error)
         }
@@ -44,14 +48,14 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolde
         return dataList.size
     }
 
-    fun setData(newData: List<String>) {
+    fun setData(newData: MoviesModel) {
         val diffUtil = DiffUtils(
-            dataList,
-            newData
+            newData.results,
+            dataList
         )
         val diffUtilResults = DiffUtil.calculateDiff(diffUtil)
         diffUtilResults.dispatchUpdatesTo(this)
-        dataList = newData
+        dataList = newData.results
 
     }
 }

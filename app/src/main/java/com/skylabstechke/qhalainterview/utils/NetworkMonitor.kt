@@ -19,12 +19,12 @@ constructor(private val application: Application) {
 
         override fun onAvailable(network: Network) {
             NetWorkVariables.isNetworkConnected = true
-            Timber.wtf("Network Available")
+            Timber.i("Network Available")
         }
 
         override fun onLosing(network: Network, maxMsToLive: Int) {
             NetWorkVariables.isNetworkConnected = false
-            Timber.wtf("Network Lost")
+            Timber.i("Network Lost")
         }
     }
 
