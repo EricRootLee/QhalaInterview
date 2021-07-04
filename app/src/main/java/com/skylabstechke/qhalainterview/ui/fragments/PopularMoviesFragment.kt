@@ -79,6 +79,11 @@ class PopularMoviesFragment : Fragment() {
                     hideShimmer()
                     Toast.makeText(requireContext(), response.message.toString(), Toast.LENGTH_LONG)
                         .show()
+                    binding.errorText.visibility=View.VISIBLE
+                    binding.errorText.text=response.message.toString()
+
+                    binding.errorImage.visibility=View.VISIBLE
+
                 }
                 is NetworkResults.Success -> {
                     Timber.d("RESPONSE 2 -> ${response.data.toString()}")
