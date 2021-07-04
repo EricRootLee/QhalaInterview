@@ -1,19 +1,24 @@
 package com.skylabstechke.qhalainterview.data.models
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
+import kotlinx.parcelize.RawValue
 
+@Parcelize
 data class MoviesModel(
     @SerializedName("page")
     val page: Int,
     @SerializedName("results")
-    val results: List<Result>,
+    val results:@RawValue List<Result>,
     @SerializedName("total_pages")
     val totalPages: Int,
     @SerializedName("total_results")
     val totalResults: Int
-)
+):Parcelable
 
+@Parcelize
 data class Result(
     @SerializedName("adult")
     val adult: Boolean,
@@ -43,4 +48,4 @@ data class Result(
     val voteAverage: Double,
     @SerializedName("vote_count")
     val voteCount: Int
-)
+):Parcelable

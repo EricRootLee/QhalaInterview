@@ -28,5 +28,8 @@
             app:destination="@id/popularMoviesFragment"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right" />
+        <argument
+            android:name="moviesResult"
+            app:argType="com.skylabstechke.qhalainterview.data.models.Result" />
     </fragment>
 </navigation>
