@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import coil.load
 import com.skylabstechke.qhalainterview.R
@@ -27,10 +28,19 @@ class SingleMovieFragment : Fragment() {
 
 
         binding.detailsImage.load(
-            POSTER_PATH+args.moviesResult.posterPath
+            POSTER_PATH + args.moviesResult.posterPath
         ) {
             crossfade(600)
             error(R.drawable.ic_error)
+        }
+
+        binding.detailsTitle.text = args.moviesResult.title
+        binding.detailsDescription.text = args.moviesResult.overview
+        binding.detailsDate.text = args.moviesResult.releaseDate
+        binding.detailsAverage.text = args.moviesResult.voteAverage.toString()
+
+        binding.backButton.setOnClickListener {
+
         }
         return binding.root
     }
