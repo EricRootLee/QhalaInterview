@@ -6,4 +6,6 @@ object Common {
 
     const val BASE_URL =
         "https://api.themoviedb.org"
+
+    const val POSTER_PATH = "https://image.tmdb.org/t/p/original"
 }

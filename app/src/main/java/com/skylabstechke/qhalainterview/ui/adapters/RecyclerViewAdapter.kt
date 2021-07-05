@@ -10,6 +10,8 @@ import com.skylabstechke.qhalainterview.R
 import com.skylabstechke.qhalainterview.data.models.MoviesModel
 import com.skylabstechke.qhalainterview.data.models.Result
 import com.skylabstechke.qhalainterview.databinding.PopularMoviesRowLayoutBinding
+import com.skylabstechke.qhalainterview.ui.fragments.PopularMoviesFragmentDirections
+import com.skylabstechke.qhalainterview.utils.Common.POSTER_PATH
 import com.skylabstechke.qhalainterview.utils.DiffUtils
 
 
@@ -35,14 +37,19 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolde
         holder.binding.movieRating.text = dataList[position].voteAverage.toString()
 
         holder.binding.movieImage.load(
-            "https://image.tmdb.org/t/p/original${dataList[position].posterPath}"
+            POSTER_PATH + dataList[position].posterPath
+
         ) {
             crossfade(600)
             error(R.drawable.ic_error)
         }
         holder.binding.popularMoviesRowLayoutId.setOnClickListener {
             Navigation.findNavController(it)
-                .navigate(R.id.action_popularMoviesFragment_to_singleMovieFragment)
+                .navigate(
+                    PopularMoviesFragmentDirections.actionPopularMoviesFragmentToSingleMovieFragment(
+                        dataList[position]
+                    )
+                )
         }
     }
 
