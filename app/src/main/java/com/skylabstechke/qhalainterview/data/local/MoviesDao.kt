@@ -9,4 +9,8 @@ import kotlinx.coroutines.flow.Flow
 
 interface MoviesDao {
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Query("INSERT ")
+    suspend fun insert()
+
 }
