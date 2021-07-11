@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
 @Database(entities = [MoviesEntity::class],version = 1,exportSchema = false)
-@TypeConverters(TypeConverters::class)
+@TypeConverters(MoviesTypeConvertor::class)
 abstract class MoviesDatabase :RoomDatabase(){
     abstract fun getMoviesDao():MoviesDao
 }

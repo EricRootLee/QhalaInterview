@@ -7,10 +7,9 @@ import com.skylabstechke.qhalainterview.utils.Common.MOVIES_TABLE
 
 @Entity(tableName = MOVIES_TABLE)
 class MoviesEntity(
-    private val moviesData: MoviesModel
+     var moviesModel: MoviesModel
 ) {
-
     @PrimaryKey(autoGenerate = false)
-    private val id: Int = 0
+     var id: Int = 0
 
 }
