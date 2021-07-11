@@ -77,12 +77,8 @@ class PopularMoviesFragment : Fragment() {
                 }
                 is NetworkResults.Error -> {
                     hideShimmer()
-                    Toast.makeText(requireContext(), response.message.toString(), Toast.LENGTH_LONG)
-                        .show()
-                    binding.errorText.visibility=View.VISIBLE
-                    binding.errorText.text=response.message.toString()
 
-                    binding.errorImage.visibility=View.VISIBLE
+                    loadCache()
 
                 }
                 is NetworkResults.Success -> {
@@ -93,6 +89,20 @@ class PopularMoviesFragment : Fragment() {
                         recyclerViewAdapter.setData(it)
                     }
                 }
+            }
+        })
+    }
+
+   fun loadCache(){
+        mainViewModel.moviesLocalData.observe(viewLifecycleOwner, {data->
+            if (data.isNotEmpty()){
+                recyclerViewAdapter.setData(data[0].moviesModel)
+                hideShimmer()
+            }else{
+                hideShimmer()
+                binding.errorText.visibility=View.VISIBLE
+                binding.errorText.text=getString(R.string.data_unavailabe)
+                binding.errorImage.visibility=View.VISIBLE
             }
         })
     }

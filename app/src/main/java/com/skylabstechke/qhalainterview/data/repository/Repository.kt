@@ -5,9 +5,11 @@ import javax.inject.Inject
 
 @ActivityRetainedScoped
 class Repository @Inject constructor(
-    private val networkDatasource: NetworkDatasource
+    private val networkDatasource: NetworkDatasource,
+    private val localDatasource: LocalDatasource
 ) {
 
     val networkRepository = networkDatasource
+    val localRepository = localDatasource
 
 }
