@@ -35,20 +35,18 @@ class PopularMoviesFragment : Fragment() {
         )
         setRecyclerView()
         requestApi()
-
         setHasOptionsMenu(true)
         return binding.root
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.popular_movies_menu, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.change_theme_id) {
-            Toast.makeText(requireContext(), "Change theme", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), getString(R.string.change_theme), Toast.LENGTH_LONG).show()
         }
         return super.onOptionsItemSelected(item)
     }
@@ -73,19 +71,14 @@ class PopularMoviesFragment : Fragment() {
             when (response) {
                 is NetworkResults.Loading -> {
                     showShimmer()
-                    Timber.i("Loading")
                 }
                 is NetworkResults.Error -> {
                     hideShimmer()
-
                     loadCache()
-
                 }
                 is NetworkResults.Success -> {
-                    Timber.d("RESPONSE 2 -> ${response.data.toString()}")
                     hideShimmer()
                     response.data?.let {
-                        Timber.d("RESPONSE 3 -> $it")
                         recyclerViewAdapter.setData(it)
                     }
                 }
@@ -93,7 +86,7 @@ class PopularMoviesFragment : Fragment() {
         })
     }
 
-   fun loadCache(){
+   private fun loadCache(){
         mainViewModel.moviesLocalData.observe(viewLifecycleOwner, {data->
             if (data.isNotEmpty()){
                 recyclerViewAdapter.setData(data[0].moviesModel)
