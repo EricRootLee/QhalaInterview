@@ -6,7 +6,7 @@ import dagger.hilt.android.scopes.ActivityRetainedScoped
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-@ActivityRetainedScoped
+
 class LocalDatasource @Inject constructor(
     private val moviesDao: MoviesDao
 ) {
