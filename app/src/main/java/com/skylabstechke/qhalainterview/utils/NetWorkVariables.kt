@@ -7,7 +7,7 @@ import kotlin.properties.Delegates
 object NetWorkVariables {
 
     var isNetworkConnected : Boolean by Delegates.observable(false){
-        property, oldValue, newValue ->
+            _, _, newValue ->
         Timber.i("Network connectivity $newValue")
     }
 
