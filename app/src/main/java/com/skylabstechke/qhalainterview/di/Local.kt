@@ -25,7 +25,6 @@ object Local {
             DATABASE_NAME
         ).build()
 
-
     @Singleton
     @Provides
     fun provideMoviesDao(database: MoviesDatabase) =

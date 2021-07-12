@@ -11,4 +11,10 @@ object Common {
     //ROOM
     const val DATABASE_NAME = "movies"
     const val MOVIES_TABLE = "movies_table"
+
+    //NAMING
+    const val MOVIES_NOT_AVAILABLE = "Movies Not Available"
+    const val TIMEOUT = "timeout"
+    const val NO_INTERNET_CONNECTION = "No Internet Connection"
+    const val ERROR_OCCURRED = "An Error Occurred"
 }

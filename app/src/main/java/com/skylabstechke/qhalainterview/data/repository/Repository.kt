@@ -5,8 +5,8 @@ import javax.inject.Inject
 
 @ActivityRetainedScoped
 class Repository @Inject constructor(
-    private val networkDatasource: NetworkDatasource,
-    private val localDatasource: LocalDatasource
+    networkDatasource: NetworkDatasource,
+    localDatasource: LocalDatasource
 ) {
 
     val networkRepository = networkDatasource

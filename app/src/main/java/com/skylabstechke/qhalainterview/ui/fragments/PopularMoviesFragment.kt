@@ -1,7 +1,6 @@
 package com.skylabstechke.qhalainterview.ui.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -13,7 +12,6 @@ import com.skylabstechke.qhalainterview.ui.adapters.RecyclerViewAdapter
 import com.skylabstechke.qhalainterview.utils.NetworkResults
 import com.skylabstechke.qhalainterview.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 
 @AndroidEntryPoint
 class PopularMoviesFragment : Fragment() {
@@ -46,7 +44,8 @@ class PopularMoviesFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.change_theme_id) {
-            Toast.makeText(requireContext(), getString(R.string.change_theme), Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), getString(R.string.change_theme), Toast.LENGTH_LONG)
+                .show()
         }
         return super.onOptionsItemSelected(item)
     }
@@ -66,7 +65,7 @@ class PopularMoviesFragment : Fragment() {
 
     private fun requestApi() {
         showShimmer()
-     mainViewModel.getMovies()
+        mainViewModel.getMovies()
         mainViewModel.moviesResponse.observe(viewLifecycleOwner, { response ->
             when (response) {
                 is NetworkResults.Loading -> {
@@ -86,16 +85,16 @@ class PopularMoviesFragment : Fragment() {
         })
     }
 
-   private fun loadCache(){
-        mainViewModel.moviesLocalData.observe(viewLifecycleOwner, {data->
-            if (data.isNotEmpty()){
+    private fun loadCache() {
+        mainViewModel.moviesLocalData.observe(viewLifecycleOwner, { data ->
+            if (data.isNotEmpty()) {
                 recyclerViewAdapter.setData(data[0].moviesModel)
                 hideShimmer()
-            }else{
+            } else {
                 hideShimmer()
-                binding.errorText.visibility=View.VISIBLE
-                binding.errorText.text=getString(R.string.data_unavailabe)
-                binding.errorImage.visibility=View.VISIBLE
+                binding.errorText.visibility = View.VISIBLE
+                binding.errorText.text = getString(R.string.data_unavailable)
+                binding.errorImage.visibility = View.VISIBLE
             }
         })
     }
