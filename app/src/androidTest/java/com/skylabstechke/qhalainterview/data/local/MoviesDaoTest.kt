@@ -7,6 +7,7 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
 import com.skylabstechke.qhalainterview.data.common.TEST_COMMON.MOVIES_TEST_ENTITY
+import com.skylabstechke.qhalainterview.util.getOrAwaitValueTest
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Before
@@ -43,7 +44,7 @@ class MoviesDaoTest {
     @Test
     fun insertMovies() = runBlocking {
         dao.insertMovies(MOVIES_TEST_ENTITY)
-        val getMovies = dao.getMovies().asLiveData()
+        val getMovies = dao.getMovies().asLiveData().getOrAwaitValueTest()
 
 
     }
